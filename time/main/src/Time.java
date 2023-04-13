@@ -26,11 +26,11 @@ public class Time {
      * @param sec int secondi
      */
     public Time(int sec) {
-        if (sec > 60) {
+        if (sec >= 60) {
             secondi = sec % 60;
             minuti = sec / 60;
         }
-        if (minuti > 60) {
+        if (minuti >= 60) {
             int min = minuti % 60;
             ore = minuti / 60;
             minuti = min;
@@ -44,11 +44,12 @@ public class Time {
      */
     public void addSecondi(int sec) {
         secondi = secondi + sec;
-        if (sec > 60) {
-            secondi = sec % 60;
-            minuti = minuti + sec / 60;
+        int seconditotali = secondi;
+        if (secondi >= 60) {
+            secondi = seconditotali % 60;
+            minuti = minuti + seconditotali / 60;
         }
-        if (minuti > 60) {
+        if (minuti >= 60) {
             int min = minuti % 60;
             ore = ore + minuti / 60;
             minuti = min;
